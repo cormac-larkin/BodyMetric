@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(78, 105, 255, 0.829);
+    background-color: rgba(64, 32, 245, 0.712);
     border-top: 1px solid navy;
+    color: white;
 }

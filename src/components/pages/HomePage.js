@@ -1,6 +1,6 @@
-import PageHeader from "../components/PageHeader";
+import PageHeader from "../PageHeader";
 import classes from "./HomePage.module.css";
-import logo from "../images/home-icon.svg";
+import logo from "../../images/home-icon.svg";
 
 function HomePage(props) {
   return (

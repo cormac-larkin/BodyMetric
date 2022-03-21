@@ -7,9 +7,7 @@ function PageHeader(props) {
         <img className={classes.image} src={props.image} alt=""></img>
         {props.title}
       </h1>
-      <p className={classes.description}>
-        <i>{props.description}</i>
-      </p>
+      <p className={classes.description}>{props.description}</p>
       <hr />
     </>
   );

@@ -1,13 +1,27 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import classes from "./HamburgerMenu.module.css";
 
 function HamburgerMenu(props) {
+  const menu = useRef();
   const checkBox = useRef();
 
+  // Function to close Hamburger Menu (side-menu)
   function menuCloser() {
     checkBox.current.checked = false;
   }
+
+  // Function to close Hamburger Menu if user clicks other parts of the page
+  function outsideClickHandler(event) {
+    if (menu.current.contains(event.target) || checkBox.current.contains(event.target))
+    {
+      return;
+    }
+    menuCloser();
+  }
+
+  // Listener to trigger Menu Close function
+  document.addEventListener("click", outsideClickHandler);
 
   return (
     <div className={classes.menuToggle}>
@@ -17,9 +31,11 @@ function HamburgerMenu(props) {
       <span></span>
       <span></span>
 
-      <ul className={classes.menu}>
+      <ul ref={menu} className={classes.menu}>
         <li>
-        <Link to="/" onClick={menuCloser}>Home</Link>
+          <Link to="/" onClick={menuCloser}>
+            Home
+          </Link>
         </li>
         <li>
           <Link to="/calculators" onClick={menuCloser}>
